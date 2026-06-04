@@ -15,12 +15,6 @@
     { "type": "de", "key": "DE              ", "keyColor": "yellow" },
     { "type": "wm", "key": "WM              ", "keyColor": "yellow" },
     { "type": "packages", "key": "Packages        ", "keyColor": "yellow" },
-    {
-      "type": "command",
-      "key": "AppImages       ",
-      "keyColor": "yellow",
-      "text": "find $HOME -maxdepth 2 -name '*.AppImage' 2>/dev/null | wc -l"
-    },
     { "type": "shell", "key": "Shell           ", "keyColor": "yellow" },
     { "type": "terminal", "key": "Terminal        ", "keyColor": "yellow" },
     "break",
