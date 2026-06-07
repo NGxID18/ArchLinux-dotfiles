@@ -13,4 +13,7 @@ ln -sf "$DOTFILES_DIR/.config/fastfetch/config.jsonc" ~/.config/fastfetch/config
 echo "Menautkan konfigurasi Ghostty..."
 ln -sf "$DOTFILES_DIR/.config/ghostty/config.ghostty" ~/.config/ghostty/config
 
-echo "✅ Konfigurasi berhasil diterapkan!"
+echo "Menerapkan konfigurasi GNOME Extensions (dconf)..."
+dconf load /org/gnome/shell/extensions/ < "$DOTFILES_DIR/.config/dconf/gnome-extensions.dconf"
+
+echo "Konfigurasi berhasil diterapkan!"
