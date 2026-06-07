@@ -13,17 +13,17 @@ run_script() {
     ./"$1"
     
     if [ $? -ne 0 ]; then
-        echo -e "\n❌ ERROR: Gagal saat mengeksekusi $1."
+        echo -e "\n ERROR: Gagal saat mengeksekusi $1."
         echo "Proses instalasi dihentikan untuk mencegah kerusakan sistem."
         exit 1
     else
-        echo "✅ $1 selesai dijalankan."
+        echo " $1 selesai dijalankan."
     fi
 }
 
-run_script "dependencies.sh"
-run_script "nvidia.sh"
-run_script "gnome.sh"
-run_script "cockpit.sh"
+run_script "Scripts/dependencies.sh"
+run_script "Scripts/nvidia.sh"
+run_script "Scripts/gnome.sh"
+run_script "Scripts/cockpit.sh"
 
-echo -e "\n🎉 SEMUA PROSES SELESAI DENGAN SUKSES! 🎉"
+echo -e "\n SEMUA PROSES SELESAI DENGAN SUKSES! "

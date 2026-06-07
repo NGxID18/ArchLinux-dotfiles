@@ -2,16 +2,16 @@
 
 # Pacman
 echo "Updating the system and installing essential packages..."
-pacman -Syy --noconfirm
-pacman -Syu --noconfirm
-pacman -S --noconfirm --needed \
+sudo pacman -Syy --noconfirm
+sudo pacman -Syu --noconfirm
+sudo pacman -S --noconfirm --needed \
     base-devel \
     git \
     curl \
     wget \
     cmake \
     make \
-    unzip \
+    unzip
 
 pacman -S --noconfirm \
     ghostty \
@@ -21,7 +21,7 @@ pacman -S --noconfirm \
     discord \
     obs-studio \
     solaar \
-    openrgb \
+    openrgb
     
 ## ======================================================= ##
 
@@ -37,7 +37,7 @@ echo "Installing applications from the AUR using Paru..."
 paru -S --noconfirm \
     visual-studio-code-bin \
     google-chrome \
-    zoom \
+    zoom
 
 ## ======================================================= ##
 
@@ -45,13 +45,13 @@ paru -S --noconfirm \
 echo "Installing Flatpak and the GNOME Software plugin for Flatpak..."
 pacman -S flatpak --noconfirm \
     gnome-software-plugin-flatpak \
-    flatseal \
+    flatseal
 
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub -y \
+flatpak install flathub -y
 
 echo "Installing applications from Flathub using Flatpak..."
-flatpak install -y \
+sudo flatpak install -y \
     com.rtosta.zapzap \
     org.onlyoffice.desktopeditors \
-    sh.ppy.osu \
+    sh.ppy.osu

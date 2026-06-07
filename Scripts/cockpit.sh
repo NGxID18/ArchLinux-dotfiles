@@ -3,7 +3,7 @@
 echo "Installing Docker..."
 pacman -S --noconfirm \
     docker \
-    docker-compose \
+    docker-compose
 
 sudo systemctl enable --now docker.service
 
@@ -12,11 +12,11 @@ sudo systemctl enable --now docker.service
 echo "Installing Cockpit Dependencies and Deployment"
 pacman -S --noconfirm \
     cockpit \
-    cockpit-storaged \
+    cockpit-storaged
 
 paru -S --noconfirm \
     cockpit-dockermanager \
-    cockpit-pacman \
+    cockpit-pacman
 
 sudo systemctl enable --now cockpit.service
 
@@ -28,7 +28,7 @@ pacman -S --noconfirm \
     udisk2-btrfs \
     btrfs-progs \
     snapper \
-    cronie \
+    cronie
 
 sudo git clone https://github.com/NGxID18/btrfs-manager /usr/share/cockpit/btrfs-manager
 sudo chmod -R 644 /usr/share/cockpit/btrfs-manager/*
