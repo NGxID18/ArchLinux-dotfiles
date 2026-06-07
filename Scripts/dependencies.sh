@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Pacman
-// Update the system and install essential packages
+echo "Updating the system and installing essential packages..."
 pacman -Syy --noconfirm
 pacman -Syu --noconfirm
 pacman -S --noconfirm --needed \
@@ -26,14 +26,14 @@ pacman -S --noconfirm \
 ## ======================================================= ##
 
 # Paru
-// Install Paru AUR helper
+echo "Installing Paru AUR helper..."
 git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -si --noconfirm
 cd ..
 rm -rf paru
 
-// Install applications from the AUR using Paru
+echo "Installing applications from the AUR using Paru..."
 paru -S --noconfirm \
     visual-studio-code-bin \
     google-chrome \
@@ -42,7 +42,7 @@ paru -S --noconfirm \
 ## ======================================================= ##
 
 # Flatpak
-// Install Flatpak and the GNOME Software plugin for Flatpak
+echo "Installing Flatpak and the GNOME Software plugin for Flatpak..."
 pacman -S flatpak --noconfirm \
     gnome-software-plugin-flatpak \
     flatseal \
@@ -50,7 +50,7 @@ pacman -S flatpak --noconfirm \
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub -y \
 
-// Install applications from Flathub using Flatpak
+echo "Installing applications from Flathub using Flatpak..."
 flatpak install -y \
     com.rtosta.zapzap \
     org.onlyoffice.desktopeditors \

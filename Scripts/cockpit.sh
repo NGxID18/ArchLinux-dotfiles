@@ -1,6 +1,6 @@
 #!/bin/bash
 
-// Docker Installation
+echo "Installing Docker..."
 pacman -S --noconfirm \
     docker \
     docker-compose \
@@ -9,7 +9,7 @@ sudo systemctl enable --now docker.service
 
 ## ======================================================= ##
 
-// Cockpit Dependencies and Deployment
+echo "Installing Cockpit Dependencies and Deployment"
 pacman -S --noconfirm \
     cockpit \
     cockpit-storaged \
@@ -22,7 +22,7 @@ sudo systemctl enable --now cockpit.service
 
 ### ======================================================= ##
 
-// BTRFS Dependencies
+echo "Installing BTRFS Dependencies"
 pacman -S --noconfirm \
     udisk2 \
     udisk2-btrfs \
