@@ -1,5 +1,17 @@
 #!/bin/bash
 
+echo "Removing unnecessary GNOME applications..."
+sudo pacman -Rns --noconfirm \
+    epiphany \
+    gnome-contacts \
+    gnome-maps \
+    gnome-weather \
+    gnome-clocks \
+    gnome-music \
+    gnome-tour \
+    totem \
+    yelp
+
 echo "Installing GNOME Tweaks and Extension Manager..."
 pacman -S --noconfirm \
     gnome-tweaks \
