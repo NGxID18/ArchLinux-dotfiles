@@ -1,0 +1,35 @@
+#!/bin/bash
+
+// Docker Installation
+pacman -S --noconfirm \
+    docker \
+    docker-compose \
+
+sudo systemctl enable --now docker.service
+
+## ======================================================= ##
+
+// Cockpit Dependencies and Deployment
+pacman -S --noconfirm \
+    cockpit \
+    cockpit-storaged \
+
+paru -S --noconfirm \
+    cockpit-dockermanager \
+    cockpit-pacman \
+
+sudo systemctl enable --now cockpit.service
+
+### ======================================================= ##
+
+// BTRFS Dependencies
+pacman -S --noconfirm \
+    udisk2 \
+    udisk2-btrfs \
+    btrfs-progs \
+    snapper \
+    cronie \
+
+sudo git clone https://github.com/NGxID18/btrfs-manager /usr/share/cockpit/btrfs-manager
+sudo chmod -R 644 /usr/share/cockpit/btrfs-manager/*
+sudo chmod 755 /usr/share/cockpit/btrfs-manager
