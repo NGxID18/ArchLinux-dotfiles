@@ -7,4 +7,5 @@ cd ArchLinux-dotfiles
 
 
 List :
-1. Ghostty and Fastfetch Preset
+1. Ghostty and Fastfetch + Preset
+2. ...

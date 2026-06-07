@@ -8,7 +8,6 @@ sudo pacman -S --noconfirm \
 
 echo "Creating 5060tune service for NVIDIA Power & Clock Limit..."
 
-# Membuat file konfigurasi systemd
 sudo bash -c 'cat > /etc/systemd/system/5060tune.service <<EOF
 [Unit]
 Description=5060tune NVIDIA GPU Power and Clock Limit

@@ -7,17 +7,17 @@ chmod +x Scripts/*.sh
 
 run_script() {
     echo -e "\n==================================================="
-    echo " 🚀 Menjalankan: $1"
+    echo " Running  : $1"
     echo "==================================================="
     
     ./"$1"
     
     if [ $? -ne 0 ]; then
-        echo -e "\n ERROR: Gagal saat mengeksekusi $1."
-        echo "Proses instalasi dihentikan untuk mencegah kerusakan sistem."
+        echo -e "\n ERROR   : Failed to execute $1."
+        echo "Process installation stopped to prevent system damage."
         exit 1
     else
-        echo " $1 selesai dijalankan."
+        echo " $1 Succeeded."
     fi
 }
 
@@ -27,4 +27,4 @@ run_script "Scripts/gnome.sh"
 run_script "Scripts/nvidia.sh"
 run_script "Scripts/cockpit.sh"
 
-echo -e "\n SEMUA PROSES SELESAI DENGAN SUKSES! "
+echo -e "\n All scripts executed successfully! "
