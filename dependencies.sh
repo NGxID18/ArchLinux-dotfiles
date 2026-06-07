@@ -13,6 +13,13 @@ pacman -S --noconfirm --needed \
     make \
     unzip \
 
+pacman -S --noconfirm \
+    ghostty \
+    fastfetch \
+    steam \
+    discord \
+    obs-studio \
+
 ## ======================================================= ##
 
 # Paru
@@ -24,17 +31,16 @@ cd ..
 rm -rf paru
 
 // Install applications from the AUR using Paru
-paru -S --noconfirm --needed \
+paru -S --noconfirm \
     visual-studio-code-bin \
     google-chrome \
-    discord \
     zoom \
 
 ## ======================================================= ##
 
 # Flatpak
 // Install Flatpak and the GNOME Software plugin for Flatpak
-pacman -S flatpak --noconfirm --needed \
+pacman -S flatpak --noconfirm \
     gnome-software-plugin-flatpak \
 
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
