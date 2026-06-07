@@ -22,8 +22,9 @@ run_script() {
 }
 
 run_script "Scripts/dependencies.sh"
-run_script "Scripts/nvidia.sh"
+run_script "Scripts/configs.sh"
 run_script "Scripts/gnome.sh"
+run_script "Scripts/nvidia.sh"
 run_script "Scripts/cockpit.sh"
 
 echo -e "\n SEMUA PROSES SELESAI DENGAN SUKSES! "
