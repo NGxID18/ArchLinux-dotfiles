@@ -16,10 +16,13 @@ pacman -S --noconfirm --needed \
 pacman -S --noconfirm \
     ghostty \
     fastfetch \
+    mission-center \
     steam \
     discord \
     obs-studio \
-
+    solaar \
+    openrgb \
+    
 ## ======================================================= ##
 
 # Paru
@@ -42,6 +45,7 @@ paru -S --noconfirm \
 // Install Flatpak and the GNOME Software plugin for Flatpak
 pacman -S flatpak --noconfirm \
     gnome-software-plugin-flatpak \
+    flatseal \
 
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub -y \
