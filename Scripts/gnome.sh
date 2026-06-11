@@ -10,8 +10,10 @@ sudo pacman -Rns --noconfirm \
     gnome-clocks \
     gnome-music \
     gnome-tour \
+    gnome-console \
     gnome-user-docs \
     yelp \
+    htop \
     vim
 
 echo "Installing GNOME Tweaks and Extension Manager..."

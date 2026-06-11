@@ -8,10 +8,6 @@ sudo pacman -S --noconfirm --needed \
     base-devel \
     git \
     curl \
-    wget \
-    cmake \
-    make \
-    unzip
 
 sudo pacman -S --noconfirm \
     ghostty \
