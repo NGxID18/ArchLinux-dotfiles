@@ -1,5 +1,7 @@
 #!/bin/bash
 
+## Gnome Customization & Debloat ##
+
 echo "Removing unnecessary GNOME applications..."
 sudo pacman -Rns --noconfirm \
     epiphany \

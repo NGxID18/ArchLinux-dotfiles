@@ -28,6 +28,7 @@ sudo pacman -S flatpak --noconfirm \
 
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
+# Install Flatpak applications
 echo "Installing applications from Flathub using Flatpak..."
 flatpak install -y \
     com.rtosta.zapzap \
