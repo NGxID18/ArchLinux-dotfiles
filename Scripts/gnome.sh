@@ -15,7 +15,7 @@ sudo pacman -Rns --noconfirm \
     vim
 
 echo "Installing GNOME Tweaks and Extension Manager..."
-pacman -S --noconfirm \
+sudo pacman -S --noconfirm \
     gnome-tweaks \
     extension-manager
 
