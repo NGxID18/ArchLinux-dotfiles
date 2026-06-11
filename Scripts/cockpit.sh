@@ -18,7 +18,7 @@ paru -S --noconfirm \
     cockpit-dockermanager \
     cockpit-pacman
 
-sudo systemctl enable --now cockpit.service
+sudo systemctl enable --now cockpit.socket
 
 ### ======================================================= ##
 
@@ -31,5 +31,3 @@ pacman -S --noconfirm \
     cronie
 
 sudo git clone https://github.com/NGxID18/btrfs-manager /usr/share/cockpit/btrfs-manager
-sudo chmod -R 644 /usr/share/cockpit/btrfs-manager/*
-sudo chmod 755 /usr/share/cockpit/btrfs-manager

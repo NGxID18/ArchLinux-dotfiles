@@ -2,7 +2,9 @@
 
 echo "Installing NVIDIA Drivers and Tools..."
 sudo pacman -S --noconfirm \
+    nvidia-open-dkms \
     nvidia-utils \
+    lib32-nvidia-utils \
     nvidia-settings \
     cuda
 
@@ -16,9 +18,7 @@ Requires=nvidia-persistenced.service
 
 [Service]
 Type=oneshot
-# Set Power Limit ke 125 Watt
-ExecStart=/usr/bin/nvidia-smi -pl 125
-# Set Clock Limit (Minimum 210MHz, Maksimum 2400MHz)
+ExecStart=/usr/bin/nvidia-smi -pl 123
 ExecStart=/usr/bin/nvidia-smi -lgc 210,2400
 RemainAfterExit=yes
 

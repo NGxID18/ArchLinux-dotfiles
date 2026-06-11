@@ -13,7 +13,7 @@ sudo pacman -S --noconfirm --needed \
     make \
     unzip
 
-pacman -S --noconfirm \
+sudo pacman -S --noconfirm \
     ghostty \
     fastfetch \
     mission-center \
@@ -43,7 +43,7 @@ paru -S --noconfirm \
 
 # Flatpak
 echo "Installing Flatpak and the GNOME Software plugin for Flatpak..."
-pacman -S flatpak --noconfirm \
+sudo pacman -S flatpak --noconfirm \
     gnome-software-plugin-flatpak \
     flatseal
 
@@ -51,7 +51,7 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 flatpak install flathub -y
 
 echo "Installing applications from Flathub using Flatpak..."
-sudo flatpak install -y \
+flatpak install -y \
     com.rtosta.zapzap \
     org.onlyoffice.desktopeditors \
     sh.ppy.osu
