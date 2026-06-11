@@ -26,4 +26,4 @@ pacman -S --noconfirm \
     snapper \
     cronie
 
-git clone https://github.com/NGxID18/btrfs-manager /usr/share/cockpit/btrfs-manager
+sudo git clone https://github.com/NGxID18/btrfs-manager /usr/share/cockpit/btrfs-manager
