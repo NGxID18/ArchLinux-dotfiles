@@ -14,10 +14,6 @@ pacman -S --noconfirm \
     cockpit \
     cockpit-storaged
 
-paru -S --noconfirm \
-    cockpit-dockermanager \
-    cockpit-pacman
-
 sudo systemctl enable --now cockpit.socket
 
 ### ======================================================= ##
