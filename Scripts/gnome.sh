@@ -1,8 +1,16 @@
 #!/bin/bash
 
-## Gnome Debloat, Customization & Extensions ##
+## Gnome Installation, Customization & Extensions ##
 
-echo "Removing unnecessary GNOME applications..."
+echo "Installing GNOME Desktop Environment..."
+sudo pacman -S --needed \
+    gnome-shell \
+    gnome-control-center \
+    xdg-desktop-portal-gnome \
+    nautilus
+
+
+echo "Removing unnecessary GNOME applications (if they exist)..."
 sudo pacman -Rns \
     epiphany \
     gnome-characters \
@@ -16,7 +24,7 @@ sudo pacman -Rns \
     gnome-user-docs \
     yelp \
     htop \
-    vim
+    vim || true
 
 echo "Installing GNOME Tweaks and Extension Manager..."
 sudo pacman -S \

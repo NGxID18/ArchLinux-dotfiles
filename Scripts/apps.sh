@@ -7,7 +7,10 @@ echo "Installing main applications using Pacman..."
 sudo pacman -S \
     ghostty \
     fastfetch \
+    ttf-jetbrains-mono-nerd \
     mission-center \
+    tailscale \
+    zerotier-one \
     steam \
     discord \
     obs-studio \
