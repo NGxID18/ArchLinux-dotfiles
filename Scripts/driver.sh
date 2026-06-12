@@ -6,7 +6,8 @@ sudo pacman -S \
     nvidia-utils \
     lib32-nvidia-utils \
     nvidia-settings \
-    cuda
+    cuda \
+    cudnn
 
 echo "Enabling nvidia-persistenced service (Required for power limits)..."
 sudo systemctl enable nvidia-persistenced.service
