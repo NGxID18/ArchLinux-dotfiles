@@ -11,3 +11,11 @@ paru -S --noconfirm \
     visual-studio-code-bin \
     google-chrome \
     zoom
+
+# Yay
+echo "Installing Yay AUR helper..."
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si --noconfirm
+cd ..
+rm -rf yay
