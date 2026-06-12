@@ -10,6 +10,9 @@ sudo pacman -S \
 echo "Installing Sugar Candy theme via Paru..."
 paru -S sddm-sugar-candy-git
 
+echo "Applying Custom Background to Sugar Candy..."
+sudo sed -i 's|^Background=.*|Background="/usr/share/backgrounds/Wallpapers/KQART.png"|' /usr/share/sddm/themes/sugar-candy/theme.conf
+
 echo "Configuring Display Manager..."
 sudo systemctl disable gdm.service 2>/dev/null || true
 sudo systemctl enable sddm.service
