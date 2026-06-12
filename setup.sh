@@ -21,10 +21,10 @@ run_script() {
     fi
 }
 
-run_script "Scripts/dependencies.sh"
-run_script "Scripts/configs.sh"
+run_script "Scripts/repo.sh"
+run_script "Scripts/driver.sh"
+run_script "Scripts/apps.sh"
 run_script "Scripts/gnome.sh"
-run_script "Scripts/nvidia.sh"
-run_script "Scripts/cockpit.sh"
+run_script "Scripts/configs.sh"
 
 echo -e "\n All scripts executed successfully! "
