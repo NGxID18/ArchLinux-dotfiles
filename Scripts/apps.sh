@@ -30,6 +30,7 @@ echo "Installing applications from Flathub..."
 flatpak install -y \
     com.rtosta.zapzap \
     org.onlyoffice.desktopeditors \
+    io.github.shiftey.Desktop \
     sh.ppy.osu
 
 ## ======================================================= ##

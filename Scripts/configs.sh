@@ -11,7 +11,6 @@ ln -sf "$HOME/ArchLinux-dotfiles/config/fastfetch/config.jsonc" "$HOME/.config/f
 echo "Linking Ghostty configuration..."
 ln -sf "$HOME/ArchLinux-dotfiles/config/ghostty/config" "$HOME/.config/ghostty/config"
 
-# Meload settingan gnome extension dari file dconf yang kamu miliki
 if [ -f "$HOME/ArchLinux-dotfiles/config/dconf/gnome-extensions.dconf" ]; then
     echo "Applying GNOME Extensions configuration from dconf..."
     dconf load /org/gnome/shell/extensions/ < "$HOME/ArchLinux-dotfiles/config/dconf/gnome-extensions.dconf"
