@@ -3,8 +3,8 @@ theme = Dark Pastel
 background-opacity = 0.95
 background-blur = true
 
-window-width = 160
-window-height = 45
+window-width = 120
+window-height = 40
 window-padding-x = 10
 window-padding-y = 10
 window-decoration = true
