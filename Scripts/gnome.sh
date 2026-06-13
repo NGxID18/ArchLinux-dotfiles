@@ -3,14 +3,14 @@
 ## Gnome Installation, Customization & Extensions ##
 
 echo "Installing GNOME Desktop Environment..."
-sudo pacman -S --needed \
+sudo pacman -S --needed --noconfirm \
     gnome \
     gnome-tweaks \
     xdg-utils \
     nano
 
 echo "Removing unnecessary GNOME applications (if they exist)..."
-sudo pacman -Rns \
+sudo pacman -Rns --noconfirm \
     epiphany \
     gnome-characters \
     gnome-contacts \
@@ -26,12 +26,12 @@ sudo pacman -Rns \
     vim || true
 
 echo "Installing GNOME Tweaks and Extension Manager..."
-sudo pacman -S \
+sudo pacman -S --noconfirm \
     gnome-tweaks \
     extension-manager
 
 echo "Installing GNOME Extensions via Paru..."
-paru -S \
+paru -S --noconfirm \
     gnome-shell-extension-appindicator \
     gnome-shell-extension-blur-my-shell \
     gnome-shell-extension-vitals
