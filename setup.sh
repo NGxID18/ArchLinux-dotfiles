@@ -32,8 +32,8 @@ sudo chmod -R 755 /usr/share/backgrounds/Wallpapers/
 
 run_script "Scripts/repo.sh"
 run_script "Scripts/driver.sh"
-run_script "Scripts/sddm.sh"
 run_script "Scripts/gnome.sh"
+run_script "Scripts/sddm.sh"
 run_script "Scripts/apps.sh"
 run_script "Scripts/configs.sh"
 
