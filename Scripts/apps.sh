@@ -4,7 +4,7 @@
 
 #Pacman Main Applications
 echo "Installing main applications using Pacman..."
-sudo pacman -S --noconfirm \
+sudo pacman -S \
     ghostty \
     fastfetch \
     ttf-jetbrains-mono-nerd \
@@ -21,7 +21,7 @@ sudo pacman -S --noconfirm \
 
 # AUR Applications
 echo "Installing applications from the AUR using Paru..."
-paru -S --noconfirm \
+paru -S \
     visual-studio-code-bin \
     google-chrome \
     zoom
@@ -40,7 +40,7 @@ flatpak install -y \
 
 # Server Management Tools
 echo "Installing Server Management Tools..."
-sudo pacman -S --noconfirm \
+sudo pacman -S \
     docker \
     docker-compose \
     cockpit \
@@ -58,7 +58,7 @@ sudo pacman -S --noconfirm \
     xfsprogs \
     exfatprogs
 
-paru -S --noconfirm \
+paru -S \
     cockpit-pacman \
     cockpit-dockermanager
 
