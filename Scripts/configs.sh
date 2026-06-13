@@ -1,24 +1,27 @@
 #!/bin/bash
 
-echo "Starting configuration setup..."
+echo "Applying application configurations..."
 
-mkdir -p "$HOME/.config/fastfetch"
-mkdir -p "$HOME/.config/ghostty"
+REPO_DIR=~/ArchLinux-dotfiles
+USER_CONFIG_DIR=~/.config
 
-echo "Linking Fastfetch configuration ..."
-ln -sf "$HOME/ArchLinux-dotfiles/config/fastfetch/config.jsonc" "$HOME/.config/fastfetch/config.jsonc"
+mkdir -p "$USER_CONFIG_DIR"
 
-echo "Linking Ghostty configuration..."
-ln -sf "$HOME/ArchLinux-dotfiles/config/ghostty/config" "$HOME/.config/ghostty/config"
-
-echo "Applying GNOME Extensions configuration from dconf..."
-if [ -f "$HOME/ArchLinux-dotfiles/config/dconf/gnome-extensions.dconf" ]; then
-    echo "Applying GNOME Extensions configuration from dconf..."
-    dconf load /org/gnome/shell/extensions/ < "$HOME/ArchLinux-dotfiles/config/dconf/gnome-extensions.dconf"
+if [ -d "$REPO_DIR/config/ghostty" ]; then
+    echo "Copying Ghostty configuration..."
+    rm -rf "$USER_CONFIG_DIR/ghostty"
+    cp -r "$REPO_DIR/config/ghostty" "$USER_CONFIG_DIR/"
 fi
 
-echo "Applying SDDM theme configuration..."
-sudo mkdir -p /etc/sddm.conf.d
-sudo cp "$HOME/ArchLinux-dotfiles/config/sddm/sddm.conf" /etc/sddm.conf.d/theme.conf
+if [ -d "$REPO_DIR/config/fastfetch" ]; then
+    echo "Copying Fastfetch configuration..."
+    rm -rf "$USER_CONFIG_DIR/fastfetch"
+    cp -r "$REPO_DIR/config/fastfetch" "$USER_CONFIG_DIR/"
+fi
 
-echo "Configuration applied successfully!"
+if [ -f "$REPO_DIR/config/dconf/gnome-extensions.dconf" ]; then
+    echo "Loading GNOME dconf settings..."
+    dconf load / < "$REPO_DIR/config/dconf/gnome-extensions.dconf"
+fi
+
+echo "User configurations copied successfully!"
