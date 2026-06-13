@@ -2,6 +2,7 @@
 
 echo "Installing NVIDIA Drivers and Tools..."
 sudo pacman -S --noconfirm \
+    linux-zen-headers \
     dkms \
     nvidia-open-dkms \
     nvidia-utils \
@@ -10,6 +11,9 @@ sudo pacman -S --noconfirm \
     nvidia-settings \
     cuda \
     cudnn
+
+    ## linux-zen-headers is required for dkms to build the nvidia-open-dkms module
+    ## if you are using a different kernel, replace linux-zen-headers with the appropriate headers package (e.g. linux-lts-headers)
 
 echo "Enabling nvidia-persistenced service (Required for power limits)..."
 sudo systemctl enable nvidia-persistenced.service
