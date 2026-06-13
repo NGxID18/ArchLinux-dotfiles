@@ -45,6 +45,7 @@ sudo pacman -S \
     docker-compose \
     cockpit \
     cockpit-storaged \
+    packeagekit \
     udisks2 \
     udisks2-btrfs \
     btrfs-progs \

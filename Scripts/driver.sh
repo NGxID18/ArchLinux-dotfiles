@@ -2,9 +2,11 @@
 
 echo "Installing NVIDIA Drivers and Tools..."
 sudo pacman -S \
+    dkms \
     nvidia-open-dkms \
     nvidia-utils \
     lib32-nvidia-utils \
+    libva-nvidia-driver \
     nvidia-settings \
     cuda \
     cudnn

@@ -4,11 +4,10 @@
 
 echo "Installing GNOME Desktop Environment..."
 sudo pacman -S --needed \
-    gnome-shell \
-    gnome-control-center \
-    xdg-desktop-portal-gnome \
-    nautilus
-
+    gnome \
+    gnome-tweaks \
+    xdg-utils \
+    nano
 
 echo "Removing unnecessary GNOME applications (if they exist)..."
 sudo pacman -Rns \
