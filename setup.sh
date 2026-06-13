@@ -1,5 +1,10 @@
 #!/bin/bash
 
+echo "Input sudo password to start installation"
+sudo -v
+
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
 cd "$(dirname "$0")"
 
 echo "Permission set to executable for all scripts."
