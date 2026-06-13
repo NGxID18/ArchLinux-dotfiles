@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Installing NVIDIA Drivers and Tools..."
-sudo pacman -S \
+sudo pacman -S --noconfirm \
     dkms \
     nvidia-open-dkms \
     nvidia-utils \
