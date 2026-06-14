@@ -7,6 +7,7 @@ echo "Installing main applications using Pacman..."
 sudo pacman -S \
     ghostty \
     fastfetch \
+    starship \
     ttf-jetbrains-mono-nerd \
     mission-center \
     tailscale \
