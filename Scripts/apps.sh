@@ -12,6 +12,7 @@ sudo pacman -S --needed --noconfirm \
     zsh-autosuggestions \
     zsh-syntax-highlighting \
     mission-center \
+    zram-generator \
     tailscale \
     zerotier-one \
     discord \
