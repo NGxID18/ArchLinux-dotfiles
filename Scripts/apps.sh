@@ -23,6 +23,7 @@ sudo pacman -S \
 echo "Installing applications from the AUR using Paru..."
 paru -S \
     visual-studio-code-bin \
+    protonup-qt-bin \
     google-chrome \
     zoom
 
