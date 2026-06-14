@@ -24,4 +24,21 @@ if [ -f "$REPO_DIR/config/dconf/gnome-extensions.dconf" ]; then
     dconf load / < "$REPO_DIR/config/dconf/gnome-extensions.dconf"
 fi
 
+echo "Changing default shell to Zsh for user: $USER..."
+sudo chsh -s /usr/bin/zsh "$USER"
+
+echo "Creating .zshrc configuration..."
+cat << 'EOF' > ~/.zshrc
+autoload -Uz compinit
+compinit
+
+PROMPT='%F{cyan}%~%f> '
+
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+EOF
+
+echo "Zsh setup completed! Changes will take effect after restart or re-login."
+
 echo "User configurations copied successfully!"
