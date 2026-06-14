@@ -9,7 +9,7 @@ sudo pacman -S --needed base-devel git
 
 (DON'T RUN THIS COMMAND WITH SUDO, IT WILL BREAK AUR HELPER (PARU) TO RUN AND OTHER USER BASED INSTALLER)
 ```bash
-git clone https://github.com/ngxid18/ArchLinux-dotfiles.git
+git clone https://github.com/ngxid18/ArchLinux-dotfiles
 cd ArchLinux-dotfiles
 chmod +x setup.sh
 ./setup.sh
