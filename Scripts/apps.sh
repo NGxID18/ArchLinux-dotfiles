@@ -47,16 +47,18 @@ sudo pacman -S \
     cockpit-storaged \
     packagekit \
     udisks2 \
-    udisks2-btrfs \
     btrfs-progs \
-    snapper \
-    cronie \
+    udisks2-btrfs \
     lvm2 \
-    mdadm \
+    udisks2-lvm2 \
     ntfs-3g \
     ntfsprogs \
     xfsprogs \
-    exfatprogs
+    exfatprogs \
+    util-linux \
+    mdadm \
+    snapper \
+    cronie
 
 paru -S \
     cockpit-pacman \
