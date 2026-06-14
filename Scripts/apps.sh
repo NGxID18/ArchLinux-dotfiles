@@ -4,7 +4,7 @@
 
 #Pacman Main Applications
 echo "Installing main applications using Pacman..."
-sudo pacman -S \
+sudo pacman -S --needed --noconfirm \
     ghostty \
     fastfetch \
     ttf-jetbrains-mono-nerd \
@@ -14,17 +14,19 @@ sudo pacman -S \
     mission-center \
     tailscale \
     zerotier-one \
-    steam \
     discord \
     obs-studio \
     solaar \
     openrgb
 
+echo "Installing Steam (Please select the correct GPU library)..."
+sudo pacman -S --needed steam
+
 ## ======================================================= ##
 
 # AUR Applications
 echo "Installing applications from the AUR using Paru..."
-paru -S \
+paru -S --noconfirm \
     visual-studio-code-bin \
     protonup-qt-bin \
     google-chrome \
@@ -44,7 +46,7 @@ flatpak install -y \
 
 # Server Management Tools
 echo "Installing Server Management Tools..."
-sudo pacman -S \
+sudo pacman -S --needed --noconfirm \
     docker \
     docker-compose \
     cockpit \
@@ -64,7 +66,7 @@ sudo pacman -S \
     snapper \
     cronie
 
-paru -S \
+paru -S --noconfirm \
     cockpit-pacman \
     cockpit-dockermanager
 
