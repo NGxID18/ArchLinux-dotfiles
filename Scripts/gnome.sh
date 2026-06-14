@@ -7,28 +7,31 @@ sudo pacman -S --needed --noconfirm \
     gnome \
     gnome-tweaks \
     xdg-utils \
+    gnome-tweaks \
+    extension-manager \
     nano
 
-echo "Removing unnecessary GNOME applications (if they exist)..."
-sudo pacman -Rns --noconfirm \
-    epiphany \
-    gnome-characters \
-    gnome-contacts \
-    gnome-maps \
-    gnome-weather \
-    gnome-clocks \
-    gnome-music \
-    gnome-tour \
-    gnome-console \
-    gnome-user-docs \
-    yelp \
-    htop \
-    vim || true
+echo "Removing unnecessary GNOME applications"
+BLOATWARES=(
+    epiphany
+    gnome-characters
+    gnome-contacts
+    gnome-maps
+    gnome-weather
+    gnome-clocks
+    gnome-music
+    gnome-tour
+    gnome-console
+    gnome-user-docs
+    yelp
+)
 
-echo "Installing GNOME Tweaks and Extension Manager..."
-sudo pacman -S --noconfirm \
-    gnome-tweaks \
-    extension-manager
+for pkg in "${BLOATWARES[@]}"; do
+    if pacman -Qq "$pkg" >/dev/null 2>&1; then
+        echo "Removing $pkg..."
+        sudo pacman -Rns --noconfirm "$pkg"
+    fi
+done
 
 echo "Installing GNOME Extensions via Paru..."
 paru -S --noconfirm \
