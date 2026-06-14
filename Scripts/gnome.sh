@@ -5,7 +5,6 @@
 echo "Installing GNOME Desktop Environment..."
 sudo pacman -S --needed --noconfirm \
     gnome \
-    gnome-tweaks \
     xdg-utils \
     gnome-tweaks \
     extension-manager \
