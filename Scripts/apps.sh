@@ -7,8 +7,10 @@ echo "Installing main applications using Pacman..."
 sudo pacman -S \
     ghostty \
     fastfetch \
-    starship \
     ttf-jetbrains-mono-nerd \
+    zsh \
+    zsh-autosuggestions \
+    zsh-syntax-highlighting \
     mission-center \
     tailscale \
     zerotier-one \
