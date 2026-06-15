@@ -15,6 +15,7 @@ BLOATWARES=(
     epiphany
     gnome-characters
     gnome-contacts
+    gnome-calendar
     gnome-maps
     gnome-weather
     gnome-clocks

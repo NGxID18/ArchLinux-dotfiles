@@ -11,6 +11,7 @@ sudo pacman -S --needed --noconfirm \
     zsh \
     zsh-autosuggestions \
     zsh-syntax-highlighting \
+    tuned \
     mission-center \
     zram-generator \
     tailscale \
@@ -19,9 +20,6 @@ sudo pacman -S --needed --noconfirm \
     obs-studio \
     solaar \
     openrgb
-
-echo "Installing Steam (Please select the correct GPU library)..."
-sudo pacman -S --needed steam
 
 ## ======================================================= ##
 
@@ -32,6 +30,12 @@ paru -S --noconfirm \
     protonup-qt-bin \
     google-chrome \
     zoom
+
+## ======================================================= ##
+
+# Steam Library Installation
+echo "Installing Steam (Please select the correct GPU library)..."
+sudo pacman -S --needed steam
 
 ## ======================================================= ##
 
@@ -71,6 +75,7 @@ paru -S --noconfirm \
     cockpit-pacman \
     cockpit-dockermanager
 
+sudo chmod 700 /etc/pacman.d/gnupg
 sudo git clone https://github.com/NGxID18/btrfs-manager /usr/share/cockpit/btrfs-manager
 
 sudo systemctl enable --now docker.service

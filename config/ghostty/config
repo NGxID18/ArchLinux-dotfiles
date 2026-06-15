@@ -1,6 +1,6 @@
 theme = Dark Pastel
 
-background-opacity = 0.95
+background-opacity = 0.90
 background-blur = true
 
 window-width = 120
@@ -10,5 +10,5 @@ window-padding-y = 10
 window-decoration = true
 
 font-family = "JetBrainsMono Nerd Font"
-font-size = 14
+font-size = 12
 font-thicken = true
