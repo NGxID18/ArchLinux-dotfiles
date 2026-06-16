@@ -21,6 +21,9 @@ sudo pacman -S --needed --noconfirm \
     solaar \
     openrgb
 
+sudo systemctl enable --now tuned
+sudo systemctl enable --now zerotier-one
+
 ## ======================================================= ##
 
 # AUR Applications
