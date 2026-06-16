@@ -10,6 +10,9 @@ sudo pacman -S \
     linux-cachyos-bore \
     linux-cachyos-bore-headers
 
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+sudo pacman -Syyu
 sudo pacman -S --noconfirm \
     bash \
     mkinitcpio \
