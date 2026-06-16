@@ -19,6 +19,24 @@ if [ -d "$REPO_DIR/config/fastfetch" ]; then
     cp -r "$REPO_DIR/config/fastfetch" "$USER_CONFIG_DIR/"
 fi
 
+if [ -d "$REPO_DIR/config/autostart" ]; then
+    echo "Copying autostart configuration..."
+    rm -rf "$USER_CONFIG_DIR/autostart"
+    cp -r "$REPO_DIR/config/autostart" "$USER_CONFIG_DIR/"
+fi
+
+if [ -d "$REPO_DIR/config/OpenRGB" ]; then
+    echo "Copying OpenRGB configuration..."
+    rm -rf "$USER_CONFIG_DIR/OpenRGB"
+    cp -r "$REPO_DIR/config/OpenRGB" "$USER_CONFIG_DIR/"
+fi
+
+if [ -d "$REPO_DIR/config/solaar" ]; then
+    echo "Copying Solaar configuration..."
+    rm -rf "$USER_CONFIG_DIR/solaar"
+    cp -r "$REPO_DIR/config/solaar" "$USER_CONFIG_DIR/"
+fi
+
 if [ -f "$REPO_DIR/config/dconf/gnome-extensions.dconf" ]; then
     echo "Loading GNOME dconf settings..."
     dconf load / < "$REPO_DIR/config/dconf/gnome-extensions.dconf"
