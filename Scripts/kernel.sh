@@ -17,3 +17,11 @@ sudo pacman -S --noconfirm \
     bash \
     mkinitcpio \
     nodejs
+
+sudo pacman -Scc
+sudo rm -rf /etc/pacman.d/gnupg
+sudo pacman-key --init
+sudo pacman-key --populate archlinux cachyos
+sudo pacman -Sy archlinux-keyring cachyos-keyring
+sudo pacman -Syyu
+paru -Syyu
