@@ -43,4 +43,8 @@ run_script "Scripts/sddm.sh"
 run_script "Scripts/apps.sh"
 run_script "Scripts/configs.sh"
 
+sudo rm -r ~/ArchLinux-dotfiles
+sudo rm -r ~/cachyos-repo
+sudo rm -r ~/cachyos-repo.tar.xz
+
 echo -e "\n All scripts executed successfully! "
