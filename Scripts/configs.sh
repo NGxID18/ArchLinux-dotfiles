@@ -7,10 +7,10 @@ USER_CONFIG_DIR=~/.config
 
 mkdir -p "$USER_CONFIG_DIR"
 
-if [ -d "$REPO_DIR/config/ghostty" ]; then
-    echo "Copying Ghostty configuration..."
-    rm -rf "$USER_CONFIG_DIR/ghostty"
-    cp -r "$REPO_DIR/config/ghostty" "$USER_CONFIG_DIR/"
+if [ -d "$REPO_DIR/config/kitty" ]; then
+    echo "Copying Kitty configuration..."
+    rm -rf "$USER_CONFIG_DIR/kitty"
+    cp -r "$REPO_DIR/config/kitty" "$USER_CONFIG_DIR/"
 fi
 
 if [ -d "$REPO_DIR/config/fastfetch" ]; then

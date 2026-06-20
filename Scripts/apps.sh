@@ -5,7 +5,7 @@
 #Pacman Main Applications
 echo "Installing main applications using Pacman..."
 sudo pacman -S --needed --noconfirm \
-    ghostty \
+    kitty \
     fastfetch \
     ttf-jetbrains-mono-nerd \
     zsh \
@@ -38,7 +38,7 @@ paru -S --noconfirm \
 
 # Steam Library Installation
 echo "Installing Steam (Please select the correct GPU library)..."
-sudo pacman -S --needed steam
+sudo pacman -S steam
 
 ## ======================================================= ##
 
@@ -78,11 +78,11 @@ paru -S --noconfirm \
     cockpit-pacman \
     cockpit-dockermanager
 
-sudo chmod 700 /etc/pacman.d/gnupg
-sudo git clone https://github.com/NGxID18/btrfs-manager /usr/share/cockpit/btrfs-manager
-
 sudo systemctl enable --now docker.service
 sudo systemctl enable --now cockpit.socket
+
+sudo chmod 700 /etc/pacman.d/gnupg
+sudo git clone https://github.com/NGxID18/btrfs-manager /usr/share/cockpit/btrfs-manager
 
 ## ======================================================= ##
 
