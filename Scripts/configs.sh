@@ -42,14 +42,10 @@ fi
 ## ======================================================= ##
 
 echo "Applying gnome user config and extensions"
-mkdir -p ~/.local/share/gnome-shell/extensions/
-if [ -d "config/gnome-extensions" ]; then
-    cp -r config/gnome-extensions/* ~/.local/share/gnome-shell/extensions/
-fi
 
 if [ -f "config/dconf/gnome-settings.dconf" ]; then
     echo "Memuat GNOME dconf settings (Keybinds, Tema, dll)..."
-    dconf load /org/gnome/ < "config/dconf/gnome-settings.dconf"
+    dconf load /org/gnome/ < "$REPO_DIR/config/dconf/gnome-settings.dconf"
 fi
 
 ## ======================================================= ##
