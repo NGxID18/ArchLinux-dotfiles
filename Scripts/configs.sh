@@ -1,5 +1,7 @@
 #!/bin/bash
 
+## ======================================================= ##
+
 echo "Applying application configurations..."
 
 REPO_DIR=~/ArchLinux-dotfiles
@@ -37,10 +39,20 @@ if [ -d "$REPO_DIR/config/solaar" ]; then
     cp -r "$REPO_DIR/config/solaar" "$USER_CONFIG_DIR/"
 fi
 
-if [ -f "$REPO_DIR/config/dconf/gnome-extensions.dconf" ]; then
-    echo "Loading GNOME dconf settings..."
-    dconf load /org/gnome/shell/extensions/ < "$REPO_DIR/config/dconf/gnome-extensions.dconf"
+## ======================================================= ##
+
+echo "Applying gnome user config and extensions"
+mkdir -p ~/.local/share/gnome-shell/extensions/
+if [ -d "config/gnome-extensions" ]; then
+    cp -r config/gnome-extensions/* ~/.local/share/gnome-shell/extensions/
 fi
+
+if [ -f "config/dconf/gnome-settings.dconf" ]; then
+    echo "Memuat GNOME dconf settings (Keybinds, Tema, dll)..."
+    dconf load /org/gnome/ < "config/dconf/gnome-settings.dconf"
+fi
+
+## ======================================================= ##
 
 echo "Changing default shell to Zsh for user: $USER..."
 sudo chsh -s /usr/bin/zsh "$USER"
@@ -63,7 +75,7 @@ bindkey "^[[3~" delete-char
 
 EOF
 
-echo "Zsh setup completed! Changes will take effect after restart or re-login."
+## ======================================================= ##
 
 echo "Configuring zRAM size to 16384 MB..."
 sudo tee /etc/systemd/zram-generator.conf > /dev/null <<EOF
@@ -73,10 +85,9 @@ compression-algorithm = zstd
 swap-priority = 100
 EOF
 
-echo "Applying zRAM configuration..."
 sudo systemctl daemon-reload
 sudo systemctl restart systemd-zram-setup@zram0.service
 
-echo "zRAM setup completed!"
+## ======================================================= ##
 
-echo "User configurations copied successfully!"
+echo "Configuration applied successfully!"
