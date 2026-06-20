@@ -1,7 +1,5 @@
 #!/bin/bash
 
-## Gnome Installation, Customization & Extensions ##
-
 echo "Installing GNOME Desktop Environment..."
 sudo pacman -S --needed --noconfirm \
     gnome \

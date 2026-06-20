@@ -12,9 +12,6 @@ sudo pacman -S --noconfirm \
     cuda \
     cudnn
 
-    ## linux-zen-headers is required for dkms to build the nvidia-open-dkms module
-    ## if you are using a different kernel, replace linux-zen-headers with the appropriate headers package (e.g. linux-lts-headers)
-
 echo "Enabling nvidia-persistenced service (Required for power limits)..."
 sudo systemctl enable nvidia-persistenced.service
 

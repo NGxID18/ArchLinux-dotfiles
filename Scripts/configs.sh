@@ -39,7 +39,7 @@ fi
 
 if [ -f "$REPO_DIR/config/dconf/gnome-extensions.dconf" ]; then
     echo "Loading GNOME dconf settings..."
-    dconf load / < "$REPO_DIR/config/dconf/gnome-extensions.dconf"
+    dconf load /org/gnome/shell/extensions/ < "$REPO_DIR/config/dconf/gnome-extensions.dconf"
 fi
 
 echo "Changing default shell to Zsh for user: $USER..."

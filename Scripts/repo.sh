@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Pacman System Update
 echo "Updating the system..."
 sudo pacman -Syyu
 
@@ -9,7 +8,6 @@ sudo pacman -S --needed base-devel git curl
 
 ## ======================================================= ##
 
-# Paru
 echo "Installing Paru AUR helper..."
 git clone https://aur.archlinux.org/paru.git
 cd paru
@@ -22,7 +20,6 @@ paru -Syyu
 
 ## ======================================================= ##
 
-# Flatpak
 echo "Installing Flatpak and Flatseal..."
 sudo pacman -S --noconfirm flatpak flatseal
 
