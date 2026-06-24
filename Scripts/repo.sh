@@ -4,7 +4,7 @@ echo "Updating the system..."
 sudo pacman -Syyu
 
 echo "Installing essential build packages..."
-sudo pacman -S --needed base-devel git curl
+sudo pacman -S --noconfirm --needed base-devel git curl
 
 ## ======================================================= ##
 
