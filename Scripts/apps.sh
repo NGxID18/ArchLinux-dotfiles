@@ -36,12 +36,6 @@ paru -S --noconfirm \
 
 ## ======================================================= ##
 
-# Steam Library Installation
-echo "Installing Steam (Please select the correct GPU library)..."
-sudo pacman -S steam
-
-## ======================================================= ##
-
 # Flatpak Applications
 echo "Installing applications from Flathub..."
 flatpak install -y \
