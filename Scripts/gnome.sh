@@ -21,6 +21,7 @@ BLOATWARES=(
     gnome-tour
     gnome-console
     gnome-user-docs
+    snapshot
     yelp
 )
 
