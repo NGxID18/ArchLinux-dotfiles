@@ -13,6 +13,7 @@ sudo pacman -S --needed --noconfirm \
     zsh-syntax-highlighting \
     tuned \
     mission-center \
+    wine \
     tailscale \
     zerotier-one \
     discord \
@@ -69,7 +70,8 @@ sudo pacman -S --needed --noconfirm \
 paru -S --noconfirm \
     cockpit-pacman \
     cockpit-dockermanager \
-    cockpit-machines
+    cockpit-machines \
+    vmware-workstation
 
 sudo systemctl enable --now docker.service
 sudo systemctl enable --now cockpit.socket
