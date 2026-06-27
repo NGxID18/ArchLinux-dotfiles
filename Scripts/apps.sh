@@ -79,6 +79,7 @@ paru -S --noconfirm \
 sudo systemctl enable --now docker.service
 sudo systemctl enable --now cockpit.socket
 sudo systemctl enable --now libvirtd.service
+sudo systemctl enable --now vmware-networks.service
 
 sudo groupadd docker
 sudo usermod -aG docker $USER
