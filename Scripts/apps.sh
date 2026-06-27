@@ -41,7 +41,6 @@ flatpak install -y \
     com.rtosta.zapzap \
     org.onlyoffice.desktopeditors \
     io.github.shiftey.Desktop \
-    sh.ppy.osu
 
 ## ======================================================= ##
 
@@ -69,7 +68,8 @@ sudo pacman -S --needed --noconfirm \
 
 paru -S --noconfirm \
     cockpit-pacman \
-    cockpit-dockermanager
+    cockpit-dockermanager \
+    cockpit-machines
 
 sudo systemctl enable --now docker.service
 sudo systemctl enable --now cockpit.socket

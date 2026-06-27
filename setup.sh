@@ -36,7 +36,36 @@ sudo chmod -R 755 /usr/share/backgrounds/Wallpapers/
 # ======================================================= #
 
 run_script "Scripts/repo.sh"
-run_script "Scripts/driver/nvidia.sh"
+
+echo -e "\n==================================================="
+echo " Select Your GPU :"
+echo " 1) NVIDIA"
+echo " 2) AMD"
+echo " 3) Intel"
+echo " 4) Skip GPU Driver Installation"
+echo "==================================================="
+read -p "[1-4] : " gpu_choice
+
+case $gpu_choice in
+    1)
+        run_script "Scripts/driver/nvidia.sh"
+        ;;
+    2)
+        run_script "Scripts/driver/amd.sh"
+        ;;
+    3)
+        run_script "Scripts/driver/intel.sh"
+        ;;
+    4)
+        echo -e "\n Info : GPU Driver Installation Skipped."
+        ;;
+    *)
+        echo -e "\n Invalid input, GPU Driver Installation Skipped."
+        ;;
+esac
+
+# ======================================================= #
+
 run_script "Scripts/gnome.sh"
 run_script "Scripts/sddm.sh"
 run_script "Scripts/apps.sh"
