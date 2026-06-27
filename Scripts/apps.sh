@@ -14,6 +14,8 @@ sudo pacman -S --needed --noconfirm \
     tuned \
     mission-center \
     wine \
+    android-tools \
+    scrcpy \
     tailscale \
     zerotier-one \
     discord \
