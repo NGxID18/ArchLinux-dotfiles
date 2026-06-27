@@ -2,8 +2,6 @@
 
 echo "Installing AMD Drivers and Tools..."
 sudo pacman -S --noconfirm \
-    linux-zen-headers \
-    dkms \
     mesa \
     vulkan-radeon \
     lib32-mesa \

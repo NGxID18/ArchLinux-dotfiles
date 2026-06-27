@@ -9,6 +9,7 @@ cd "$(dirname "$0")"
 
 echo "Permission set to executable for all scripts."
 chmod +x Scripts/*.sh
+chmod +x Scripts/driver/*.sh
 
 run_script() {
     echo -e "\n==================================================="

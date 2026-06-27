@@ -12,7 +12,7 @@ sudo pacman -S --noconfirm \
     cuda \
     cudnn
 
-echo "Enabling nvidia-persistenced service (Required for power limits)..."
+echo "Enabling nvidia-persistenced service"
 sudo systemctl enable nvidia-persistenced.service
 
 echo "Creating 5060tune service for NVIDIA Power & Clock Limit..."

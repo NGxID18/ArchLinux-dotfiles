@@ -13,7 +13,6 @@ sudo pacman -S --needed --noconfirm \
     zsh-syntax-highlighting \
     tuned \
     mission-center \
-    zram-generator \
     tailscale \
     zerotier-one \
     discord \
