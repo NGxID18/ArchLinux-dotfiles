@@ -54,13 +54,15 @@ if [ -d "$REPO_DIR/config/kitty" ]; then
     cp -r "$REPO_DIR/config/kitty" "$USER_CONFIG_DIR/"
 fi
 
+sudo chsh -s /usr/bin/zsh "$USER"
+
 if [ -d "$REPO_DIR/config/.zshrc" ]; then
     echo "Copying Shell configuration..."
-    rm -f "$USER_CONFIG_DIR/.zshrc"
-    cp "$REPO_DIR/config/.zshrc" "$USER_CONFIG_DIR/"
-    sudo chsh -s /usr/bin/zsh "$USER"
-    source ~/.zshrc
+    rm -f "~/.zshrc"
+    cp "$REPO_DIR/config/.zshrc" "~/"
 fi
+
+source ~/.zshrc
 
 ## ======================================================= ##
 

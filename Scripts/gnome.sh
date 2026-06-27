@@ -3,7 +3,6 @@
 echo "Installing GNOME Desktop Environment..."
 sudo pacman -S --needed --noconfirm \
     gnome \
-    xdg-utils \
     gnome-tweaks \
     extension-manager \
     nano
@@ -48,7 +47,7 @@ echo "Applying GNOME User Config and Extensions"
 
 if [ -f "config/dconf/gnome-settings.dconf" ]; then
     echo "Loading GNOME dconf Settings"
-    dconf load /org/gnome/ < "$REPO_DIR/config/dconf/gnome-settings.dconf"
+    dconf load /org/gnome/ < "./config/dconf/gnome-settings.dconf"
 fi
 
 echo "GNOME Setup completed!"

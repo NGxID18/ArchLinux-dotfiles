@@ -73,10 +73,16 @@ paru -S --noconfirm \
     cockpit-pacman \
     cockpit-dockermanager \
     cockpit-machines \
+    realmd \
     vmware-workstation
 
 sudo systemctl enable --now docker.service
 sudo systemctl enable --now cockpit.socket
+sudo systemctl enable --now libvirtd.service
+
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
 
 sudo chmod 700 /etc/pacman.d/gnupg
 sudo git clone https://github.com/NGxID18/btrfs-manager /usr/share/cockpit/btrfs-manager
