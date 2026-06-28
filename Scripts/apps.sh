@@ -55,6 +55,7 @@ sudo pacman -S --needed --noconfirm \
     samba \
     dnsmasq \
     virt-install \
+    virt-viewer \
     virt-manager \
     qemu-full \
     qemu-desktop \
