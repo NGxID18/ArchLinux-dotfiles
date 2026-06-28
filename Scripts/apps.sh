@@ -55,6 +55,7 @@ sudo pacman -S --needed --noconfirm \
     samba \
     dnsmasq \
     virt-install \
+    virt-manager \
     cockpit \
     cockpit-storaged \
     packagekit \
