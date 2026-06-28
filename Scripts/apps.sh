@@ -52,6 +52,7 @@ echo "Installing Server Management Tools..."
 sudo pacman -S --needed --noconfirm \
     docker \
     docker-compose \
+    samba \
     cockpit \
     cockpit-storaged \
     packagekit \
@@ -87,6 +88,8 @@ newgrp docker
 
 sudo chmod 700 /etc/pacman.d/gnupg
 sudo git clone https://github.com/NGxID18/btrfs-manager /usr/share/cockpit/btrfs-manager
+
+sudo systemctl enable --now smb nmb
 
 ## ======================================================= ##
 
