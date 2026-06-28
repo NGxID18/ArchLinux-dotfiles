@@ -54,6 +54,7 @@ sudo pacman -S --needed --noconfirm \
     docker-compose \
     samba \
     dnsmasq \
+    virt-install \
     cockpit \
     cockpit-storaged \
     packagekit \
