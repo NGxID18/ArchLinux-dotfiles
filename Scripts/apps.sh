@@ -56,6 +56,8 @@ sudo pacman -S --needed --noconfirm \
     dnsmasq \
     virt-install \
     virt-manager \
+    qemu-full \
+    qemu-desktop \
     cockpit \
     cockpit-storaged \
     packagekit \
