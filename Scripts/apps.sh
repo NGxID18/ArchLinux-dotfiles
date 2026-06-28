@@ -53,6 +53,7 @@ sudo pacman -S --needed --noconfirm \
     docker \
     docker-compose \
     samba \
+    dnsmasq \
     cockpit \
     cockpit-storaged \
     packagekit \
