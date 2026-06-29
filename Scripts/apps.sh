@@ -15,6 +15,7 @@ sudo pacman -S --needed --noconfirm \
     mission-center
 
 echo "Installing Additional Apps..."
+sudo pacman -S --needed --noconfirm \
     tailscale \
     zerotier-one \
     android-tools \
