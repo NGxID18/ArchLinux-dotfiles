@@ -55,7 +55,6 @@ echo "Installing Server Management Tools..."
 sudo pacman -S --needed --noconfirm \
     docker \
     docker-compose \
-    samba \
     dnsmasq \
     virt-install \
     virt-viewer \
@@ -92,12 +91,9 @@ sudo systemctl enable --now libvirtd.service
 sudo systemctl enable --now vmware-networks.service
 
 sudo usermod -aG docker $USER
-newgrp docker
 
 sudo chmod 700 /etc/pacman.d/gnupg
 sudo git clone https://github.com/NGxID18/btrfs-manager /usr/share/cockpit/btrfs-manager
-
-sudo systemctl enable --now smb nmb
 
 ## ======================================================= ##
 
