@@ -3,7 +3,7 @@
 ## ======================================================= ##
 
 #Pacman Main Applications
-echo "Installing main applications using Pacman..."
+echo "Installing Essential Apps..."
 sudo pacman -S --needed --noconfirm \
     kitty \
     fastfetch \
@@ -12,12 +12,14 @@ sudo pacman -S --needed --noconfirm \
     zsh-autosuggestions \
     zsh-syntax-highlighting \
     tuned \
-    mission-center \
-    wine \
-    android-tools \
-    scrcpy \
+    mission-center
+
+echo "Installing Additional Apps..."
     tailscale \
     zerotier-one \
+    android-tools \
+    scrcpy \
+    wine \
     discord \
     obs-studio \
     solaar \
@@ -33,6 +35,7 @@ echo "Installing applications from the AUR using Paru..."
 paru -S --noconfirm \
     visual-studio-code-bin \
     protonup-qt-bin \
+    zen-browser-bin \
     google-chrome \
     zoom
 
@@ -42,8 +45,7 @@ paru -S --noconfirm \
 echo "Installing applications from Flathub..."
 flatpak install -y \
     com.rtosta.zapzap \
-    org.onlyoffice.desktopeditors \
-    io.github.shiftey.Desktop \
+    org.onlyoffice.desktopeditors
 
 ## ======================================================= ##
 
@@ -88,7 +90,6 @@ sudo systemctl enable --now cockpit.socket
 sudo systemctl enable --now libvirtd.service
 sudo systemctl enable --now vmware-networks.service
 
-sudo groupadd docker
 sudo usermod -aG docker $USER
 newgrp docker
 
