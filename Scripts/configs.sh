@@ -56,10 +56,10 @@ fi
 
 sudo chsh -s /usr/bin/zsh "$USER"
 
-if [ -d "$REPO_DIR/config/.zshrc" ]; then
+if [ -f "$REPO_DIR/config/.zshrc" ]; then
     echo "Copying Shell configuration..."
-    rm -f "~/.zshrc"
-    cp "$REPO_DIR/config/.zshrc" "~/"
+    rm -f ~/.zshrc
+    cp "$REPO_DIR/config/.zshrc" "$HOME/"
 fi
 
 source ~/.zshrc
