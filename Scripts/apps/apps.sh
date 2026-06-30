@@ -51,49 +51,30 @@ flatpak install -y \
 ## ======================================================= ##
 
 # Server Management Tools
-echo "Installing Server Management Tools..."
-sudo pacman -S --needed --noconfirm \
-    docker \
-    docker-compose \
-    dnsmasq \
-    virt-install \
-    virt-viewer \
-    virt-manager \
-    qemu-full \
-    qemu-desktop \
-    cockpit \
-    cockpit-storaged \
-    packagekit \
-    udisks2 \
-    btrfs-progs \
-    udisks2-btrfs \
-    lvm2 \
-    udisks2-lvm2 \
-    ntfs-3g \
-    ntfsprogs \
-    xfsprogs \
-    exfatprogs \
-    util-linux \
-    mdadm \
-    snapper \
-    cronie
+if [[ "$INSTALL_SERVER_TOOLS" =~ ^[Yy]$ ]]; then
+    echo "Installing Server Management Tools..."
+    sudo pacman -S --needed --noconfirm \
+        docker docker-compose dnsmasq virt-install virt-viewer virt-manager \
+        qemu-full qemu-desktop cockpit cockpit-storaged packagekit udisks2 \
+        btrfs-progs udisks2-btrfs lvm2 udisks2-lvm2 ntfs-3g ntfsprogs \
+        xfsprogs exfatprogs util-linux mdadm snapper cronie
 
-paru -S --noconfirm \
-    cockpit-pacman \
-    cockpit-dockermanager \
-    cockpit-machines \
-    realmd \
-    vmware-workstation
+    paru -S --noconfirm \
+        cockpit-pacman cockpit-dockermanager cockpit-machines realmd \
+        vmware-workstation
 
-sudo systemctl enable --now docker.service
-sudo systemctl enable --now cockpit.socket
-sudo systemctl enable --now libvirtd.service
-sudo systemctl enable --now vmware-networks.service
+    sudo systemctl enable --now docker.service
+    sudo systemctl enable --now cockpit.socket
+    sudo systemctl enable --now libvirtd.service
+    sudo systemctl enable --now vmware-networks.service
 
-sudo usermod -aG docker $USER
+    sudo usermod -aG docker $USER
 
-sudo chmod 700 /etc/pacman.d/gnupg
-sudo git clone https://github.com/NGxID18/btrfs-manager /usr/share/cockpit/btrfs-manager
+    sudo chmod 700 /etc/pacman.d/gnupg
+    sudo git clone https://github.com/NGxID18/btrfs-manager /usr/share/cockpit/btrfs-manager
+else
+    echo "Skipping Server Management Tools installation based on user config."
+fi
 
 ## ======================================================= ##
 
