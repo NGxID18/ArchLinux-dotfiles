@@ -14,6 +14,9 @@ sudo pacman -S --needed base-devel git
 ```bash
 git clone https://github.com/ngxid18/ArchLinux-dotfiles
 cd ArchLinux-dotfiles
-chmod +x setup.sh
-./setup.sh
+chmod +x install.sh
+./install.sh
 ```
+
+
+This installer supposed to run on ArchLinux Minimal Install with $USER login after using Manual or Archinstall
