@@ -3,7 +3,7 @@
 echo "Input sudo password to start installation"
 sudo -v
 
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+while true; do sudo -n -v; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 cd "$(dirname "$0")"
 

@@ -9,11 +9,11 @@ sudo pacman -S --noconfirm --needed base-devel git curl
 ## ======================================================= ##
 
 echo "Installing Paru AUR helper..."
-git clone https://aur.archlinux.org/paru.git
-cd paru
+git clone https://aur.archlinux.org/paru-bin.git
+cd paru-bin
 makepkg -si --noconfirm
 cd ..
-rm -rf paru
+rm -rf paru-bin
 
 echo "Updating the system with Paru..."
 paru -Syyu --noconfirm
