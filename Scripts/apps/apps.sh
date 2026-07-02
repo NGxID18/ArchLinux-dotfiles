@@ -11,6 +11,8 @@ sudo pacman -S --needed --noconfirm \
     zsh zsh-autosuggestions zsh-syntax-highlighting \
     tuned \
     mission-center \
+    tailscale \
+    zerotier-one \
     udisks2 lvm2 udisks2-lvm2 \
     btrfs-progs udisks2-btrfs \
     ntfs-3g ntfsprogs \
@@ -20,38 +22,43 @@ sudo pacman -S --needed --noconfirm \
     cronie
 
 echo "Installing Additional Apps..."
-sudo pacman -S --needed --noconfirm \
-    tailscale \
-    zerotier-one \
-    android-tools \
-    scrcpy \
-    wine \
-    discord \
-    obs-studio \
-    solaar \
-    openrgb
+
 
 sudo systemctl enable --now tuned
 sudo systemctl enable --now zerotier-one
 
 ## ======================================================= ##
 
-# AUR Applications
-echo "Installing applications from the AUR using Paru..."
-paru -S --noconfirm \
-    visual-studio-code-bin \
-    protonup-qt-bin \
-    zen-browser-bin \
-    google-chrome \
-    zoom
+# Additional Apps
+if [[ "$INSTALL_ADDONS" =~ ^[Yy]$ ]]; then
+    echo "Installing Additional Apps..."
+    sudo pacman -S --needed --noconfirm \
+        android-tools \
+        scrcpy \
+        wine \
+        discord \
+        obs-studio \
+        solaar \
+        openrgb
 
-## ======================================================= ##
+    paru -S --noconfirm \
+        visual-studio-code-bin \
+        protonup-qt-bin \
+        google-chrome \
+        zoom
 
-# Flatpak Applications
-echo "Installing applications from Flathub..."
-flatpak install -y \
-    com.rtosta.zapzap \
-    org.onlyoffice.desktopeditors
+    flatpak install -y \
+        com.rtosta.zapzap \
+        org.onlyoffice.desktopeditors
+
+    sudo systemctl enable --now docker.service
+    sudo systemctl enable --now cockpit.socket
+    sudo systemctl enable --now libvirtd.service
+    sudo systemctl enable --now vmware-networks.service
+
+else
+    echo "Skipping Server Management Tools installation based on user config."
+fi
 
 ## ======================================================= ##
 
