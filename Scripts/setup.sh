@@ -55,7 +55,10 @@ read -p ": " INSTALL_APPS
 INSTALL_APPS=${INSTALL_APPS:-Y}
 
 if [[ "$INSTALL_APPS" =~ ^[Yy]$ ]]; then
-    echo -e "\n   Do you also want to install Server Management Tools (Docker, QEMU, Cockpit, etc)? (y/N)"
+    echo -e "\n   Do you also want to install Additional Apps? (y/N)"
+    read -p "   : " INSTALL_ADDONS
+    INSTALL_ADDONS=${INSTALL_ADDONS:-N}
+    echo -e "\n   Do you also want to install Server Management Tools? (y/N)"
     read -p "   : " INSTALL_SERVER_TOOLS
     INSTALL_SERVER_TOOLS=${INSTALL_SERVER_TOOLS:-N}
 fi
@@ -71,4 +74,4 @@ echo "==================================================="
 sleep 2
 
 export GPU_CHOICE NVD_TYPE NVD_CUDA NVD_TUNE AMD_TYPE AMD_ROCM INTEL_COMPUTE
-export INSTALL_GUI INSTALL_DM INSTALL_APPS INSTALL_SERVER_TOOLS INSTALL_CONF
+export INSTALL_GUI INSTALL_DM INSTALL_APPS INSTALL_ADDONS INSTALL_SERVER_TOOLS INSTALL_CONF
