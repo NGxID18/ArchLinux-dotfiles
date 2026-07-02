@@ -8,11 +8,17 @@ sudo pacman -S --needed --noconfirm \
     kitty \
     fastfetch \
     ttf-jetbrains-mono-nerd \
-    zsh \
-    zsh-autosuggestions \
-    zsh-syntax-highlighting \
+    zsh zsh-autosuggestions zsh-syntax-highlighting \
     tuned \
-    mission-center
+    mission-center \
+    udisks2 \
+    btrfs-progs udisks2-btrfs \
+    lvm2 udisks2-lvm2
+    ntfs-3g ntfsprogs \
+    xfsprogs exfatprogs \
+    util-linux mdadm \
+    snapper\
+    cronie
 
 echo "Installing Additional Apps..."
 sudo pacman -S --needed --noconfirm \
@@ -55,9 +61,7 @@ if [[ "$INSTALL_SERVER_TOOLS" =~ ^[Yy]$ ]]; then
     echo "Installing Server Management Tools..."
     sudo pacman -S --needed --noconfirm \
         docker docker-compose dnsmasq virt-install virt-viewer virt-manager \
-        qemu-full qemu-desktop cockpit cockpit-storaged packagekit udisks2 \
-        btrfs-progs udisks2-btrfs lvm2 udisks2-lvm2 ntfs-3g ntfsprogs \
-        xfsprogs exfatprogs util-linux mdadm snapper cronie
+        qemu-full qemu-desktop cockpit cockpit-storaged packagekit
 
     paru -S --noconfirm \
         cockpit-pacman cockpit-dockermanager cockpit-machines realmd \
