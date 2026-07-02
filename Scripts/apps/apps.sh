@@ -18,11 +18,17 @@ sudo pacman -S --needed --noconfirm \
     ntfs-3g ntfsprogs \
     xfsprogs exfatprogs \
     util-linux mdadm \
-    snapper\
+    snapper \
     cronie
 
-echo "Installing Additional Apps..."
+paru -S --noconfirm \
+    visual-studio-code-bin \
+    google-chrome \
+    zoom
 
+flatpak install -y \
+    com.rtosta.zapzap \
+    org.onlyoffice.desktopeditors
 
 sudo systemctl enable --now tuned
 sudo systemctl enable --now zerotier-one
@@ -41,51 +47,10 @@ if [[ "$INSTALL_ADDONS" =~ ^[Yy]$ ]]; then
         solaar \
         openrgb
 
-    paru -S --noconfirm \
-        visual-studio-code-bin \
-        protonup-qt-bin \
-        google-chrome \
-        zoom
-
-    flatpak install -y \
-        com.rtosta.zapzap \
-        org.onlyoffice.desktopeditors
-
-    sudo systemctl enable --now docker.service
-    sudo systemctl enable --now cockpit.socket
-    sudo systemctl enable --now libvirtd.service
-    sudo systemctl enable --now vmware-networks.service
+    paru -S --noconfirm protonup-qt-bin
 
 else
-    echo "Skipping Server Management Tools installation based on user config."
+    echo "Skipping Additional Apps installation based on user config."
 fi
-
-## ======================================================= ##
-
-# Server Management Tools
-if [[ "$INSTALL_SERVER_TOOLS" =~ ^[Yy]$ ]]; then
-    echo "Installing Server Management Tools..."
-    sudo pacman -S --needed --noconfirm \
-        docker docker-compose dnsmasq virt-install virt-viewer virt-manager \
-        qemu-full qemu-desktop cockpit cockpit-storaged packagekit
-
-    paru -S --noconfirm \
-        cockpit-pacman cockpit-dockermanager cockpit-machines realmd \
-        vmware-workstation
-
-    sudo systemctl enable --now docker.service
-    sudo systemctl enable --now cockpit.socket
-    sudo systemctl enable --now libvirtd.service
-    sudo systemctl enable --now vmware-networks.service
-
-    sudo usermod -aG docker $USER
-
-    sudo chmod 700 /etc/pacman.d/gnupg
-    sudo git clone https://github.com/NGxID18/btrfs-manager /usr/share/cockpit/btrfs-manager
-else
-    echo "Skipping Server Management Tools installation based on user config."
-fi
-
-## ======================================================= ##
 
 echo "All applications installed successfully!"

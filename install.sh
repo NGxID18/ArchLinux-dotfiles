@@ -81,6 +81,7 @@ fi
 # Applications
 if [[ "$INSTALL_APPS" =~ ^[Yy]$ ]]; then
     run_script "Scripts/apps/apps.sh"
+    run_script "Scripts/apps/server.sh"
 fi
 
 # User Configs
