@@ -67,9 +67,23 @@ if [[ "$INSTALL_APPS" =~ ^[Yy]$ ]]; then
 fi
 
 # --- 5. USER CONFIGS ---
-echo -e "\n[5/5] Do you want to apply Dotfiles Configurations (Zsh, Kitty, Fastfetch, GNOME settings)? (Y/n)"
-read -p ": " INSTALL_CONF
-INSTALL_CONF=${INSTALL_CONF:-Y}
+echo -e "\n[5/5] Do you want to apply CLI Configurations (Zsh, Kitty, Fastfetch)? (Y/n)"
+read -p ": " INSTALL_CLI
+INSTALL_CLI=${INSTALL_CLI:-Y}
+
+if [[ "$INSTALL_CLI" =~ ^[Yy]$ ]]; then
+    echo -e "\n   Do you also want to apply zRAM configuration? (y/N)"
+    read -p "   : " INSTALL_ZRAM
+    INSTALL_ZRAM=${INSTALL_ZRAM:-N}
+    echo -e "\n   Do you also want to install peripheral configurations? (y/N)"
+    read -p "   : " INSTALL_PERIPHERAL
+    INSTALL_PERIPHERAL=${INSTALL_PERIPHERAL:-N}
+fi
+
+REPO_DIR=~/ArchLinux-dotfiles
+USER_CONFIG_DIR=~/.config
+
+mkdir -p "$USER_CONFIG_DIR"
 
 echo -e "\n==================================================="
 echo " All inputs recorded. Starting automated installation..."
@@ -77,4 +91,5 @@ echo "==================================================="
 sleep 2
 
 export GPU_CHOICE NVD_TYPE NVD_CUDA NVD_TUNE AMD_TYPE AMD_ROCM INTEL_COMPUTE
-export INSTALL_GUI INSTALL_DM INSTALL_APPS INSTALL_ADDONS INSTALL_COCKPIT INSTALL_SERVER_TOOLS INSTALL_CONF
+export INSTALL_GUI INSTALL_DM INSTALL_APPS INSTALL_ADDONS INSTALL_COCKPIT INSTALL_SERVER_TOOLS
+export REPO_DIR USER_CONFIG_DIR INSTALL_CLI INSTALL_ZRAM INSTALL_PERIPHERAL

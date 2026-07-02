@@ -81,12 +81,20 @@ fi
 # Applications
 if [[ "$INSTALL_APPS" =~ ^[Yy]$ ]]; then
     run_script "Scripts/apps/apps.sh"
-    run_script "Scripts/apps/server.sh"
+    if [[ "$INSTALL_SERVER_TOOLS" =~ ^[Yy]$ ]]; then
+        run_script "Scripts/apps/server.sh"
+    fi
 fi
 
 # User Configs
-if [[ "$INSTALL_CONF" =~ ^[Yy]$ ]]; then
-    run_script "Scripts/configs.sh"
+if [[ "$INSTALL_CLI" =~ ^[Yy]$ ]]; then
+    run_script "Scripts/configs/cli.sh"
+    if [[ "$INSTALL_ZRAM" =~ ^[Yy]$ ]]; then
+        run_script "Scripts/configs/zram.sh"
+    fi
+    if [[ "$INSTALL_PERIPHERAL" =~ ^[Yy]$ ]]; then
+        run_script "Scripts/configs/peripheral.sh"
+    fi
 fi
 
 # Cleanup Repo
