@@ -11,9 +11,8 @@ sudo pacman -S --needed --noconfirm \
     zsh zsh-autosuggestions zsh-syntax-highlighting \
     tuned \
     mission-center \
-    udisks2 \
+    udisks2 lvm2 udisks2-lvm2 \
     btrfs-progs udisks2-btrfs \
-    lvm2 udisks2-lvm2
     ntfs-3g ntfsprogs \
     xfsprogs exfatprogs \
     util-linux mdadm \
