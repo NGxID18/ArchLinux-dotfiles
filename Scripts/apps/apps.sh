@@ -9,7 +9,6 @@ sudo pacman -S --needed --noconfirm \
     fastfetch \
     ttf-jetbrains-mono-nerd \
     zsh zsh-autosuggestions zsh-syntax-highlighting \
-    tuned \
     mission-center \
     tailscale \
     zerotier-one \

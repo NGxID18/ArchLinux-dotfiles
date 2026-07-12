@@ -37,7 +37,7 @@ fi
 # --- 2. GUI: DE ---
 echo -e "\n[2/5] Do you want to install GNOME Desktop Environment? (Y/n)"
 read -p ": " INSTALL_GUI
-INSTALL_GUI=${INSTALL_GUI:-Y} # Default = Y jika user hanya menekan Enter
+INSTALL_GUI=${INSTALL_GUI:-Y}
 
 # --- 3. SESSION MANAGER ---
 echo -e "\n[3/5] Do you want to install SDDM & Sugar Candy Theme? (Y/n)"

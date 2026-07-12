@@ -29,7 +29,8 @@ if [[ "$INSTALL_SERVER_TOOLS" =~ ^[Yy]$ ]]; then
     sudo pacman -S --needed --noconfirm \
         docker docker-compose \
         dnsmasq virt-install virt-viewer virt-manager \
-        qemu-full qemu-desktop
+        qemu-full qemu-desktop \
+        tuned
 
     paru -S --noconfirm \
         cockpit-dockermanager cockpit-machines \
