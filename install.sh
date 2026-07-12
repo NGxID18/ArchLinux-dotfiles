@@ -11,13 +11,13 @@ echo "Permission set to executable for all scripts."
 find Scripts -type f -name "*.sh" -exec chmod +x {} +
 
 # ======================================================= #
-# --- MEMUAT INPUT USER (INTERAKTIF) ---
+# --- User Input ---
 # ======================================================= #
 
 if [ -f "Scripts/setup.sh" ]; then
     source Scripts/setup.sh
 else
-    echo -e "\n ERROR: Scripts/setup.sh tidak ditemukan!"
+    echo -e "\n ERROR: Scripts/setup.sh not found!"
     exit 1
 fi
 

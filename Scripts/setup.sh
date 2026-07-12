@@ -27,11 +27,6 @@ if [ "$GPU_CHOICE" == "1" ]; then
         read -p ": " NVD_TUNE
     fi
 elif [ "$GPU_CHOICE" == "2" ]; then
-    echo -e "\n Choose AMD Vulkan Driver:"
-    echo " 1) RADV / Mesa (vulkan-radeon) - Recommended for Gaming"
-    echo " 2) AMDVLK (amdvlk) - Official AMD Vulkan driver"
-    read -p "[1-2] : " AMD_TYPE
-
     echo -e "\nDo you want to install AMD ROCm? (y/N)"
     read -p ": " AMD_ROCM
 elif [ "$GPU_CHOICE" == "3" ]; then
