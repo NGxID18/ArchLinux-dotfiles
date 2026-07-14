@@ -30,8 +30,8 @@ flatpak install -y \
     com.rtosta.zapzap \
     org.onlyoffice.desktopeditors
 
-sudo systemctl enable --now tuned
-sudo systemctl enable --now zerotier-one
+sudo systemctl enable --now tailscaled
+sudo systemctl enable --now zerotier-one.service
 
 ## ======================================================= ##
 
