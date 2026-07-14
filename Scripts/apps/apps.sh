@@ -12,6 +12,7 @@ sudo pacman -S --needed --noconfirm \
     mission-center \
     tailscale \
     zerotier-one \
+    discord \
     udisks2 lvm2 udisks2-lvm2 \
     btrfs-progs udisks2-btrfs \
     ntfs-3g ntfsprogs \
@@ -41,7 +42,6 @@ if [[ "$INSTALL_ADDONS" =~ ^[Yy]$ ]]; then
         android-tools \
         scrcpy \
         wine \
-        discord \
         obs-studio \
         solaar \
         openrgb
