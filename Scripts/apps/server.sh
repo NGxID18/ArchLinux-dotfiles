@@ -10,7 +10,6 @@ if [[ "$INSTALL_COCKPIT" =~ ^[Yy]$ ]]; then
 
     paru -S --noconfirm \
         cockpit-pacman \
-        cockpit-machines \
         realmd
 
     sudo systemctl enable --now cockpit.socket
