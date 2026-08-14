@@ -12,7 +12,6 @@ sudo pacman -S --needed --noconfirm \
     mission-center \
     librewolf \
     tailscale \
-    zerotier-one \
     discord \
     udisks2 lvm2 udisks2-lvm2 \
     btrfs-progs udisks2-btrfs \
@@ -31,7 +30,6 @@ paru -S --noconfirm --needed \
     zapzap-bin
 
 sudo systemctl enable --now tailscaled
-sudo systemctl enable --now zerotier-one.service
 
 ## ======================================================= ##
 
@@ -41,10 +39,7 @@ if [[ "$INSTALL_ADDONS" =~ ^[Yy]$ ]]; then
     sudo pacman -S --needed --noconfirm \
         android-tools \
         scrcpy \
-        wine \
         obs-studio \
-        solaar \
-        openrgb
 
     paru -S --noconfirm --needed protonup-qt-bin
 else
