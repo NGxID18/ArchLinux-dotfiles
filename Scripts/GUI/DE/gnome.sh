@@ -43,11 +43,4 @@ gsettings set org.gnome.shell enabled-extensions "['appindicatorsupport@rgcjonas
 
 ## ======================================================= ##
 
-echo "Applying GNOME User Config and Extensions"
-
-if [ -f "config/dconf/gnome-settings.dconf" ]; then
-    echo "Loading GNOME dconf Settings"
-    dconf load /org/gnome/ < "./config/dconf/gnome-settings.dconf"
-fi
-
 echo "GNOME Setup completed!"

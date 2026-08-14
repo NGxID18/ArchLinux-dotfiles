@@ -24,6 +24,6 @@ echo "Enabling 5060tune service..."
 sudo systemctl enable 5060tune.service
 echo "5060tune service applied successfully."
 
-sudo pacman -S nvidia-container-toolkit
+sudo pacman -S --needed --noconfirm nvidia-container-toolkit
 sudo nvidia-ctk runtime configure --runtime=docker
 sudo systemctl restart docker

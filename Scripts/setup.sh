@@ -45,7 +45,7 @@ read -p ": " INSTALL_DM
 INSTALL_DM=${INSTALL_DM:-Y}
 
 # --- 4. APPLICATIONS ---
-echo -e "\n[4/5] Do you want to install Applications (Kitty, Zsh, Discord, Chrome, etc)? (Y/n)"
+echo -e "\n[4/5] Do you want to install Applications (Kitty, Zsh, Librewolf, Antigravity, Discord, etc)? (Y/n)"
 read -p ": " INSTALL_APPS
 INSTALL_APPS=${INSTALL_APPS:-Y}
 
@@ -53,12 +53,9 @@ if [[ "$INSTALL_APPS" =~ ^[Yy]$ ]]; then
     echo -e "\n   Do you also want to install Additional Apps? (y/N)"
     read -p "   : " INSTALL_ADDONS
     INSTALL_ADDONS=${INSTALL_ADDONS:-N}
-    echo -e "\n   Do you also want to install Cockpit? (y/N)"
+    echo -e "\n   Do you also want to install Cockpit & Btrfs Manager? (y/N)"
     read -p "   : " INSTALL_COCKPIT
     INSTALL_COCKPIT=${INSTALL_COCKPIT:-N}
-    echo -e "\n   Do you also want to install Server Tools? (y/N)"
-    read -p "   : " INSTALL_SERVER_TOOLS
-    INSTALL_SERVER_TOOLS=${INSTALL_SERVER_TOOLS:-N}
 fi
 
 # --- 5. USER CONFIGS ---
@@ -70,13 +67,10 @@ if [[ "$INSTALL_CLI" =~ ^[Yy]$ ]]; then
     echo -e "\n   Do you also want to apply zRAM configuration? (y/N)"
     read -p "   : " INSTALL_ZRAM
     INSTALL_ZRAM=${INSTALL_ZRAM:-N}
-    echo -e "\n   Do you also want to install peripheral configurations? (y/N)"
-    read -p "   : " INSTALL_PERIPHERAL
-    INSTALL_PERIPHERAL=${INSTALL_PERIPHERAL:-N}
 fi
 
-REPO_DIR=~/ArchLinux-dotfiles
-USER_CONFIG_DIR=~/.config
+REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+USER_CONFIG_DIR="$HOME/.config"
 
 mkdir -p "$USER_CONFIG_DIR"
 
@@ -86,5 +80,6 @@ echo "==================================================="
 sleep 2
 
 export GPU_CHOICE NVD_TYPE NVD_CUDA NVD_TUNE AMD_ROCM INTEL_COMPUTE
-export INSTALL_GUI INSTALL_DM INSTALL_APPS INSTALL_ADDONS INSTALL_COCKPIT INSTALL_SERVER_TOOLS
-export REPO_DIR USER_CONFIG_DIR INSTALL_CLI INSTALL_ZRAM INSTALL_PERIPHERAL
+export INSTALL_GUI INSTALL_DM INSTALL_APPS INSTALL_ADDONS INSTALL_COCKPIT
+export REPO_DIR USER_CONFIG_DIR INSTALL_CLI INSTALL_ZRAM
+

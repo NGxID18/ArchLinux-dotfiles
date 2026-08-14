@@ -1,11 +1,18 @@
 #!/bin/bash
 
+if [ "$EUID" -eq 0 ]; then
+    echo -e "\n ERROR: Do not run install.sh with sudo directly!"
+    echo " The script will ask for sudo password when needed."
+    exit 1
+fi
+
 echo "Input sudo password to start installation"
 sudo -v
 
 while true; do sudo -n -v; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-cd "$(dirname "$0")"
+REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$REPO_DIR"
 
 echo "Permission set to executable for all scripts."
 find Scripts -type f -name "*.sh" -exec chmod +x {} +
@@ -30,9 +37,7 @@ run_script() {
     echo " Running  : $1"
     echo "==================================================="
     
-    ./"$1"
-    
-    if [ $? -ne 0 ]; then
+    if ! ./"$1"; then
         echo -e "\n ERROR   : Failed to execute $1."
         echo "Process installation stopped to prevent system damage."
         exit 1
@@ -78,12 +83,9 @@ if [[ "$INSTALL_DM" =~ ^[Yy]$ ]]; then
     run_script "Scripts/session/sddm.sh"
 fi
 
-# Applications
+# Applications & Cockpit
 if [[ "$INSTALL_APPS" =~ ^[Yy]$ ]]; then
     run_script "Scripts/apps/apps.sh"
-    if [[ "$INSTALL_SERVER_TOOLS" =~ ^[Yy]$ ]]; then
-        run_script "Scripts/apps/server.sh"
-    fi
 fi
 
 # User Configs
@@ -92,12 +94,6 @@ if [[ "$INSTALL_CLI" =~ ^[Yy]$ ]]; then
     if [[ "$INSTALL_ZRAM" =~ ^[Yy]$ ]]; then
         run_script "Scripts/configs/zram.sh"
     fi
-    if [[ "$INSTALL_PERIPHERAL" =~ ^[Yy]$ ]]; then
-        run_script "Scripts/configs/peripheral.sh"
-    fi
 fi
-
-# Cleanup Repo
-rm -rf ~/ArchLinux-dotfiles
 
 echo -e "\n All scripts executed successfully! "
