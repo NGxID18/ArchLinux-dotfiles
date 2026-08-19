@@ -5,7 +5,7 @@
 echo "Configuring zRAM size to 16384 MB..."
 sudo tee /etc/systemd/zram-generator.conf > /dev/null <<EOF
 [zram0]
-zram-size = 16384
+zram-size = 32768
 compression-algorithm = zstd
 swap-priority = 100
 EOF
