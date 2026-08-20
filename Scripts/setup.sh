@@ -49,6 +49,16 @@ echo -e "\n[4/5] Do you want to install Applications (Kitty, Zsh, Librewolf, Ant
 read -p ": " INSTALL_APPS
 INSTALL_APPS=${INSTALL_APPS:-Y}
 
+if [[ "$INSTALL_APPS" =~ ^[Yy]$ ]]; then
+    echo -e "\n   Do you also want to install Additional Apps (Android Tools, Scrcpy, OBS, ProtonUp-Qt)? (y/N)"
+    read -p "   : " INSTALL_ADDONS
+    INSTALL_ADDONS=${INSTALL_ADDONS:-N}
+
+    echo -e "\n   Do you also want to install Cockpit & Btrfs Manager? (y/N)"
+    read -p "   : " INSTALL_COCKPIT
+    INSTALL_COCKPIT=${INSTALL_COCKPIT:-N}
+fi
+
 # --- 5. USER CONFIGS ---
 echo -e "\n[5/5] Do you want to apply CLI Configurations (Zsh, Kitty, Fastfetch)? (Y/n)"
 read -p ": " INSTALL_CLI
@@ -71,7 +81,7 @@ echo "==================================================="
 sleep 2
 
 export GPU_CHOICE NVD_TYPE NVD_CUDA NVD_TUNE AMD_ROCM INTEL_COMPUTE
-export INSTALL_GUI INSTALL_DM INSTALL_APPS
+export INSTALL_GUI INSTALL_DM INSTALL_APPS INSTALL_ADDONS INSTALL_COCKPIT
 export REPO_DIR USER_CONFIG_DIR INSTALL_CLI INSTALL_ZRAM
 
 

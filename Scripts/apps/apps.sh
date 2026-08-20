@@ -24,12 +24,13 @@ sudo pacman -S --needed --noconfirm \
 # AUR Main Applications via Paru
 echo "Installing Essential Apps via Paru (AUR)..."
 paru -S --noconfirm --needed \
-    antigravity-bin \
+    antigravity-ide \
     zoom \
     onlyoffice-bin \
     zapzap-bin
 
 sudo systemctl enable --now tailscaled
+sudo systemctl enable --now cronie
 
 ## ======================================================= ##
 
@@ -39,7 +40,7 @@ if [[ "$INSTALL_ADDONS" =~ ^[Yy]$ ]]; then
     sudo pacman -S --needed --noconfirm \
         android-tools \
         scrcpy \
-        obs-studio \
+        obs-studio
 
     paru -S --noconfirm --needed protonup-qt-bin
 else

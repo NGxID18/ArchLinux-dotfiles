@@ -32,7 +32,7 @@ for pkg in "${BLOATWARES[@]}"; do
 done
 
 echo "Installing GNOME Extensions via Paru..."
-paru -S --noconfirm \
+paru -S --needed --noconfirm \
     gnome-shell-extension-appindicator \
     gnome-shell-extension-blur-my-shell \
     gnome-shell-extension-vitals
