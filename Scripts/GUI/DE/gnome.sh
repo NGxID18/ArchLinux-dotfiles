@@ -2,7 +2,7 @@
 
 echo "Installing GNOME Desktop Environment..."
 sudo pacman -S --needed --noconfirm \
-    gnome-shell \
+    gnome \
     gnome-tweaks \
     extension-manager \
     nano
