@@ -1,5 +1,8 @@
 #!/bin/bash
+set -e
 
+## ======================================================= ##
+# zRAM Configuration
 ## ======================================================= ##
 
 echo "Installing zram-generator..."
@@ -13,7 +16,6 @@ compression-algorithm = zstd
 swap-priority = 100
 EOF
 
+echo "Applying zRAM setup..."
 sudo systemctl daemon-reload
 sudo systemctl restart systemd-zram-setup@zram0.service
-
-## ======================================================= ##

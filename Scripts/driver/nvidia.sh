@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 echo -e "\nDetecting Installed Kernel..."
 KERNEL_HEADERS="dkms"
@@ -23,6 +24,12 @@ if pacman -Qq linux-hardened &>/dev/null; then
     KERNEL_HEADERS="$KERNEL_HEADERS linux-hardened-headers"
 fi
 
+# Fallback if no specific kernel was matched
+if [ "$KERNEL_HEADERS" == "dkms" ]; then
+    echo "-> Warning: No standard kernel package matched in pacman database. Adding linux-headers as fallback."
+    KERNEL_HEADERS="$KERNEL_HEADERS linux-headers"
+fi
+
 NVD_PKGS="$KERNEL_HEADERS"
 
 if [ "$NVD_TYPE" == "3" ]; then
@@ -43,8 +50,8 @@ else
     fi
 fi
 
-echo -e "\nInstalling Drivers"
-sudo pacman -S --noconfirm --needed $NVD_PKGS
+echo -e "\nInstalling NVIDIA Drivers and Dependencies..."
+sudo pacman -S --needed --noconfirm $NVD_PKGS
 
 if [ "$NVD_TYPE" != "3" ]; then
     echo "Enabling nvidia-persistenced service..."

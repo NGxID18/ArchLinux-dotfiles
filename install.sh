@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 if [ "$EUID" -eq 0 ]; then
     echo -e "\n ERROR: Do not run install.sh with sudo directly!"
@@ -6,15 +7,18 @@ if [ "$EUID" -eq 0 ]; then
     exit 1
 fi
 
-echo "Input sudo password to start installation"
+echo "Input sudo password to start installation..."
 sudo -v
 
+# Keep sudo timestamp updated in background and ensure cleanup on exit
 while true; do sudo -n -v; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+SUDO_LOOP_PID=$!
+trap 'kill "$SUDO_LOOP_PID" 2>/dev/null || true' EXIT INT TERM
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$REPO_DIR"
 
-echo "Permission set to executable for all scripts."
+echo "Setting executable permissions for all installation scripts..."
 find Scripts -type f -name "*.sh" -exec chmod +x {} +
 
 # ======================================================= #
@@ -39,16 +43,17 @@ run_script() {
     
     if ! ./"$1"; then
         echo -e "\n ERROR   : Failed to execute $1."
-        echo "Process installation stopped to prevent system damage."
+        echo "Installation process stopped to prevent system issues."
         exit 1
     else
-        echo " $1 Succeeded."
+        echo " -> $1 completed successfully."
     fi
 }
 
 # Setup Backgrounds
-sudo mkdir -p /usr/share/backgrounds/
-sudo cp -r "Wallpapers" /usr/share/backgrounds/
+echo "Installing Wallpapers..."
+sudo mkdir -p /usr/share/backgrounds/Wallpapers
+sudo cp -r "$REPO_DIR/Wallpapers/." /usr/share/backgrounds/Wallpapers/
 sudo chmod -R 755 /usr/share/backgrounds/Wallpapers/
 
 # Repository & AUR Helper
@@ -96,4 +101,6 @@ if [[ "$INSTALL_CLI" =~ ^[Yy]$ ]]; then
     fi
 fi
 
-echo -e "\n All scripts executed successfully! "
+echo -e "\n==================================================="
+echo " All dotfiles & scripts executed successfully!"
+echo "==================================================="

@@ -1,10 +1,11 @@
 #!/bin/bash
+set -e
 
 echo "Creating 5060tune service for NVIDIA Power & Clock Limit..."
-sudo bash -c 'cat > /etc/systemd/system/5060tune.service <<EOF
+sudo tee /etc/systemd/system/5060tune.service > /dev/null <<EOF
 [Unit]
 Description=5060tune NVIDIA GPU Power and Clock Limit
-After=multi-user.target nvidia-persistenced.service
+After=nvidia-persistenced.service
 Requires=nvidia-persistenced.service
 
 [Service]
@@ -15,7 +16,7 @@ RemainAfterExit=yes
 
 [Install]
 WantedBy=multi-user.target
-EOF'
+EOF
 
 echo "Reloading systemd daemon..."
 sudo systemctl daemon-reload

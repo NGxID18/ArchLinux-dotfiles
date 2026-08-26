@@ -1,8 +1,10 @@
 #!/bin/bash
+set -e
 
 ## ======================================================= ##
+# Main Applications (Pacman)
+## ======================================================= ##
 
-# Pacman Main Applications
 echo "Installing Essential Apps via Pacman..."
 sudo pacman -S --needed --noconfirm \
     kitty \
@@ -11,59 +13,46 @@ sudo pacman -S --needed --noconfirm \
     zsh zsh-autosuggestions zsh-syntax-highlighting \
     mission-center \
     librewolf \
-    tailscale \
     discord \
+    tailscale \
+    cronie \
+    snapper \
+    util-linux \
     udisks2 lvm2 udisks2-lvm2 \
     btrfs-progs udisks2-btrfs \
     ntfs-3g ntfsprogs \
-    xfsprogs exfatprogs \
-    util-linux mdadm \
-    snapper \
-    cronie
+    xfsprogs exfatprogs
 
-# AUR Main Applications via Paru
-echo "Installing Essential Apps via Paru (AUR)..."
-paru -S --noconfirm --needed \
-    antigravity-ide \
-    zoom \
-    onlyoffice-bin \
-    zapzap-bin
-
+echo "Enabling core background services..."
 sudo systemctl enable --now tailscaled
 sudo systemctl enable --now cronie
 
 ## ======================================================= ##
-
-# Additional Apps
-if [[ "$INSTALL_ADDONS" =~ ^[Yy]$ ]]; then
-    echo "Installing Additional Apps..."
-    sudo pacman -S --needed --noconfirm \
-        android-tools \
-        scrcpy \
-        obs-studio
-
-    paru -S --noconfirm --needed protonup-qt-bin
-else
-    echo "Skipping Additional Apps installation based on user config."
-fi
-
+# Cockpit & Btrfs Manager
 ## ======================================================= ##
 
-# Cockpit & Btrfs Manager
 if [[ "$INSTALL_COCKPIT" =~ ^[Yy]$ ]]; then
     echo "Installing Cockpit Server Management Tools..."
     sudo pacman -S --needed --noconfirm \
         cockpit \
         cockpit-storaged \
+        pcp inetutils mdadm nfs-utils \
+        wireguard-tools \
         packagekit
 
-    paru -S --noconfirm --needed \
+    echo "Installing Cockpit AUR Plugins..."
+    paru -S --needed --noconfirm \
         cockpit-pacman \
         realmd
 
+    echo "Enabling Cockpit service..."
     sudo systemctl enable --now cockpit.socket
 
+    # Fix pacman gpg permissions for PackageKit / Cockpit
     sudo chmod 700 /etc/pacman.d/gnupg 2>/dev/null || true
+
+    echo "Setting up Btrfs Manager Cockpit Module..."
+    sudo mkdir -p /usr/share/cockpit
     if [ -d "/usr/share/cockpit/btrfs-manager" ]; then
         sudo rm -rf /usr/share/cockpit/btrfs-manager
     fi
@@ -73,4 +62,3 @@ else
 fi
 
 echo "All applications installed successfully!"
-

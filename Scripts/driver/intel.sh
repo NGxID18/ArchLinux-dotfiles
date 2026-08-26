@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 INTEL_PKGS="mesa lib32-mesa vulkan-intel lib32-vulkan-intel intel-media-driver libva-intel-driver"
 
@@ -8,4 +9,4 @@ if [[ "$INTEL_COMPUTE" =~ ^[Yy]$ ]]; then
 fi
 
 echo "Installing Intel Drivers and Tools..."
-sudo pacman -S --noconfirm --needed $INTEL_PKGS
+sudo pacman -S --needed --noconfirm $INTEL_PKGS
